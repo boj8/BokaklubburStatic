@@ -115,12 +115,12 @@ main {
     font-family: 'Merriweather', serif;
 }
 
-.top-row.navbar-bar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    position: relative;
-}
+    .top-row.navbar-bar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
 
 .navbar-brand {
     font-size: 1.3rem;
@@ -148,7 +148,7 @@ main {
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    margin-left: 2rem; 
+    margin-left: 2rem;
 }
 
 .nav-link {
@@ -208,7 +208,7 @@ main {
     cursor: pointer;
     width: 2rem;
     height: 2rem;
-    order: -1; 
+    margin-left: auto;
 }
 
 .hamburger span {
