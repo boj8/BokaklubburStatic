@@ -41,7 +41,7 @@ const booksData = [
         title: "Sextíu kíló af sólskini",
         author: "Hallgrímur Helgason",
         coverPath: "images/books/book6.jpg",
-        description: "Íslensk skáldsaga sem gerist á Vestfjörðum og kannar menningararf þjóðarinnar í gegnum sögu margra kynslóða."
+        description: "Íslensk skáldsaga sem gerist á Segulfirði og kannar menningararf þjóðarinnar í gegnum sögu margra kynslóða."
     }
 ];
 
