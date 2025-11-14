@@ -42,6 +42,13 @@ const booksData = [
         author: "Hallgrímur Helgason",
         coverPath: "images/books/book6.jpg",
         description: "Íslensk skáldsaga sem gerist á Segulfirði og kannar menningararf þjóðarinnar í gegnum sögu margra kynslóða."
+    },
+    {
+        order: 7,
+        title: "Fátækt fólk",
+        author: "Tryggvi Emilsson",
+        coverPath: "images/books/book7.jpg",
+        description: "Áhrifamikil æviminning um baráttu og von í fátæku íslensku sveitasamfélagi fyrri alda."
     }
 ];
 
