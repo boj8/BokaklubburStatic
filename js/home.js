@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3 class="current-book-title">${currentBook.title}</h3>
                     <p class="current-book-author">${currentBook.author}</p>
                     <p class="current-book-description">${currentBook.description}</p>
-                    <p class="current-book-deadline">Frestur til 1. desember</p>
+                    <p class="current-book-deadline">Frestur til 1. janúar</p>
                     <div class="current-book-actions">
                         <a href="books.html" class="btn-view-books">Sjá allar bækur</a>
                     </div>

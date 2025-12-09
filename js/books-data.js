@@ -49,6 +49,13 @@ const booksData = [
         author: "Tryggvi Emilsson",
         coverPath: "images/books/book7.jpg",
         description: "Áhrifamikil æviminning um baráttu og von í fátæku íslensku sveitasamfélagi fyrri alda."
+    },
+    {
+        order: 8,
+        title: "Project Hail Mary",
+        author: "Andy Weir",
+        coverPath: "images/books/book8.jpg",
+        description: "Vísindaskáldsaga um minnislausan kennara sem vaknar einn á geimskipi milljarða kílómetra frá heimili sínu og þarf að bjarga mannkyninu frá útrýmingu."
     }
 ];
 
