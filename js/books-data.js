@@ -55,7 +55,14 @@ const booksData = [
         title: "Project Hail Mary",
         author: "Andy Weir",
         coverPath: "images/books/book8.jpg",
-        description: "Vísindaskáldsaga um minnislausan kennara sem vaknar einn á geimskipi milljarða kílómetra frá heimili sínu og þarf að bjarga mannkyninu frá útrýmingu."
+        description: "Vísindaskáldsaga um minnisislausan kennara sem vaknar einn á geimskipi milljarða kílómetra frá heimili sínu og þarf að bjarga mannkyninu frá útrýmingu."
+    },
+    {
+        order: 9,
+        title: "Lawrence in Arabia: War, Deceit, Imperial Folly and the Making of the Modern Middle East",
+        author: "Scott Anderson",
+        coverPath: "images/books/book9.jpg",
+        description: "Söguleg frásögn af T.E. Lawrence og hlutverki hans í fyrri heimsstyrjöldinni í Miðausturlöndum og hvernig átök stórvelda mótuðu nútíma Miðausturlönd."
     }
 ];
 
