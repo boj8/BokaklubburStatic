@@ -63,6 +63,27 @@ const booksData = [
         author: "Scott Anderson",
         coverPath: "images/books/book9.jpg",
         description: "Söguleg frásögn af T.E. Lawrence og hlutverki hans í fyrri heimsstyrjöldinni í Miðausturlöndum og hvernig átök stórvelda mótuðu nútíma Miðausturlönd."
+    },
+    {
+        order: 10,
+        title: "Wiseguy",
+        author: "Nicholas Pileggi",
+        coverPath: "images/books/book10.jpg",
+        description: "Rannsóknarbók/sjálfsævisaga um Henry Hill og innsýn í bandarísku undirheimana og daglegt líf glæpahópa."
+    },
+    {
+        order: 11,
+        title: "Mr. Nice",
+        author: "Howard Marks",
+        coverPath: "images/books/book11.jpg",
+        description: "Sjálfsævisaga Howard Marks sem lýsir ævintýrum hans í heimi fíkniefna, viðskipta og alþjóðlegra tengsla."
+    },
+    {
+        order: 12,
+        title: "God Bless You, Mr. Rosewater",
+        author: "Kurt Vonnegut",
+        coverPath: "images/books/book12.jpg",
+        description: "Satírísk skáldsaga um auðkýfing sem reynir að dreifa auði sínum meðal fátækra, og kannar hugmyndir um mannkosti og samfélag."
     }
 ];
 
