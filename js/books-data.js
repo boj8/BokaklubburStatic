@@ -84,6 +84,13 @@ const booksData = [
         author: "Kurt Vonnegut",
         coverPath: "images/books/book12.jpg",
         description: "Satírísk skáldsaga um auðkýfing sem reynir að dreifa auði sínum meðal fátækra, og kannar hugmyndir um mannkosti og samfélag."
+    },
+    {
+        order: 13,
+        title: "Мастер и Маргарита",
+        author: "Mikhail Bulgakov",
+        coverPath: "images/books/book13.jpg",
+        description: "Satírísk og fantasísk skáldsaga sem fléttast saman við rannsóknir á trú, völdum og ást, ein af þekktustu bókum rússneskrar bókmenntasögu."
     }
 ];
 
