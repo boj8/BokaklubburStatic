@@ -91,6 +91,13 @@ const booksData = [
         author: "Mikhail Bulgakov",
         coverPath: "images/books/book13.jpg",
         description: "Satírísk og fantasísk skáldsaga sem fléttast saman við rannsóknir á trú, völdum og ást, ein af þekktustu bókum rússneskrar bókmenntasögu."
+    },
+    {
+        order: 14,
+        title: "The Hitchhiker's Guide to the Galaxy / The Restaurant at the End of the Universe",
+        author: "Douglas Adams",
+        coverPath: "images/books/book14.jpg",
+        description: "Fyrstu tvær bækur Douglas Adams um Arthur Dent og Ford Prefect; absúrdur vísindaskáldskapur og kaldhæðinn húmor."
     }
 ];
 

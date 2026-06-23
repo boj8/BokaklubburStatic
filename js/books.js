@@ -15,7 +15,7 @@
                         <h3 class="recent-book-title">${mostRecentBook.title}</h3>
                         <h4 class="recent-book-author">${mostRecentBook.author}</h4>
                         <p class="recent-book-description">${mostRecentBook.description}</p>
-                        <p class="recent-book-deadline">Frestur til 20. júní</p>
+                        <p class="recent-book-deadline">Frestur til 20. júlí</p>
                     </div>
                 </div>
             </div>
