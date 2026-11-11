@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', async function () {
     const form = document.getElementById('nominateForm');
     const memberSelect = document.getElementById('member');
     const bookInput = document.getElementById('bookSearch');
@@ -13,6 +13,36 @@
     let searchCounter = 0;
 
     populateMemberSelect(memberSelect);
+
+    // Returns true when every member has nominated
+    async function allHaveNominated() {
+        const nominations = (await votingRequest('/nominations')) || [];
+        const nominated = new Set(nominations.map(n => n.memberName.toLowerCase()));
+        return VOTING_MEMBERS.every(m => nominated.has(m.toLowerCase()));
+    }
+
+    function closeNominations() {
+        form.style.display = 'none';
+        if (!document.getElementById('closedNotice')) {
+            form.insertAdjacentHTML('afterend', `
+                <div id="closedNotice" class="apply-validation-summary">
+                    Tilnefningum er lokið. Allir meðlimir hafa tilnefnt bók.
+                </div>
+            `);
+        }
+    }
+
+    // Nominating is closed once everyone has nominated; fail closed if the check fails
+    try {
+        if (await allHaveNominated()) {
+            closeNominations();
+            return;
+        }
+    } catch (error) {
+        form.style.display = 'none';
+        showStatus(statusEl, error.message, true);
+        return;
+    }
 
     bookInput.addEventListener('input', function () {
         selectedBook = null;
@@ -55,6 +85,14 @@
         try {
             const data = await postJson('/nominate', { memberName: memberName, book: book });
             showStatus(statusEl, `${data.message || 'Tilnefning vistuð.'} (${book})`, false);
+
+            try {
+                if (await allHaveNominated()) {
+                    closeNominations();
+                }
+            } catch (checkError) {
+                // Ignore; the page will check again on the next load
+            }
         } catch (error) {
             showStatus(statusEl, error.message, true);
         } finally {
@@ -105,8 +143,8 @@
         resultsEl.innerHTML = searchResults.map((book, index) => `
             <button type="button" class="book-result" data-index="${index}">
                 ${book.coverId
-                    ? `<img src="https://covers.openlibrary.org/b/id/${book.coverId}-S.jpg" alt="" />`
-                    : '<span class="book-result-placeholder"></span>'}
+                ? `<img src="https://covers.openlibrary.org/b/id/${book.coverId}-S.jpg" alt="" />`
+                : '<span class="book-result-placeholder"></span>'}
                 <span class="book-result-text">
                     <strong>${escapeHtml(book.title)}</strong><br />
                     <small>${escapeHtml(book.author)}${book.year ? ` (${book.year})` : ''}</small>
@@ -122,8 +160,8 @@
         selectedEl.innerHTML = `
             <div class="selected-book">
                 ${book.coverId
-                    ? `<img src="https://covers.openlibrary.org/b/id/${book.coverId}-M.jpg" alt="${escapeHtml(book.title)}" />`
-                    : ''}
+                ? `<img src="https://covers.openlibrary.org/b/id/${book.coverId}-M.jpg" alt="${escapeHtml(book.title)}" />`
+                : ''}
                 <div>
                     <strong>${escapeHtml(book.title)}</strong><br />
                     ${escapeHtml(book.author)}${book.year ? `<br /><small>Fyrst gefin út ${book.year}</small>` : ''}

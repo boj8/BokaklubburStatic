@@ -8,12 +8,36 @@
 
     populateMemberSelect(memberSelect);
 
-    let nominations = [];
-    try {
-        nominations = (await votingRequest('/nominations')) || [];
-    } catch (error) {
+    function hideVoting() {
         form.style.display = 'none';
         galleryEl.style.display = 'none';
+    }
+
+    async function getTotalVoters() {
+        const data = await votingRequest('/results');
+        return (data && data.totalVoters) || 0;
+    }
+
+    function closeVoting() {
+        hideVoting();
+        if (!document.getElementById('closedNotice')) {
+            form.insertAdjacentHTML('afterend', `
+                <div id="closedNotice" class="apply-validation-summary">
+                    Atkvæðagreiðslu er lokið. Allir meðlimir hafa kosið.
+                </div>
+            `);
+        }
+    }
+
+    let nominations = [];
+    let totalVoters = 0;
+    try {
+        [nominations, totalVoters] = await Promise.all([
+            votingRequest('/nominations').then(n => n || []),
+            getTotalVoters()
+        ]);
+    } catch (error) {
+        hideVoting();
         showStatus(statusEl, error.message, true);
         return;
     }
@@ -23,8 +47,7 @@
     const missingMembers = VOTING_MEMBERS.filter(m => !nominatedMembers.has(m.toLowerCase()));
 
     if (missingMembers.length > 0) {
-        form.style.display = 'none';
-        galleryEl.style.display = 'none';
+        hideVoting();
         const nominatedCount = VOTING_MEMBERS.length - missingMembers.length;
         form.insertAdjacentHTML('beforebegin', `
             <div class="apply-validation-summary">
@@ -33,6 +56,12 @@
                 <br />Eftir að tilnefna: ${missingMembers.map(escapeHtml).join(', ')}.
             </div>
         `);
+        return;
+    }
+
+    // Voting closes when every member has voted
+    if (totalVoters >= VOTING_MEMBERS.length) {
+        closeVoting();
         return;
     }
 
@@ -124,6 +153,14 @@
         try {
             const data = await postJson('/vote', { memberName: memberName, rankings: rankings });
             showStatus(statusEl, data.message || 'Atkvæði vistað.', false);
+
+            try {
+                if ((await getTotalVoters()) >= VOTING_MEMBERS.length) {
+                    closeVoting();
+                }
+            } catch (checkError) {
+                // Ignore; the page will check again on the next load
+            }
         } catch (error) {
             showStatus(statusEl, error.message, true);
         } finally {
