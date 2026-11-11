@@ -3,6 +3,7 @@ const API_CONFIG = {
     baseUrl: 'https://bokaklubburislands.azurewebsites.net/api',
     endpoints: {
         apply: '/membership/apply',
-        test: '/membership/test'
+        test: '/membership/test',
+        vote: '/vote'
     }
 };

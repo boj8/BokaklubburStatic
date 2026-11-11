@@ -658,6 +658,122 @@ h1 {
     margin: 0;
 }
 
+/* Voting pages */
+.vote-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.vote-select {
+    width: 100%;
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    background: #fdf6e3;
+    border: 1px solid #c97b3d;
+    border-radius: 6px;
+    padding: 0.5rem;
+    color: #3a2f1d;
+}
+
+.vote-hint {
+    color: #5c4327;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.vote-links {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.search-results {
+    margin-top: 0.5rem;
+}
+
+.book-result {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: left;
+    background: #fdf6e3;
+    border: 1px solid #c97b3d;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+    font-family: 'Merriweather', serif;
+    color: #3a2f1d;
+}
+
+    .book-result:hover {
+        background: #f5ecd7;
+    }
+
+    .book-result img,
+    .book-result-placeholder {
+        width: 36px;
+        height: 54px;
+        object-fit: cover;
+        flex: 0 0 auto;
+        background: #e8dcc0;
+        border-radius: 2px;
+    }
+
+.selected-book {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f5ecd7;
+    border-radius: 8px;
+}
+
+    .selected-book img {
+        width: 90px;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+.nomination-list {
+    padding-left: 1.2rem;
+    line-height: 1.8;
+}
+
+.results-list {
+    padding-left: 1.5rem;
+}
+
+    .results-list li {
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        background: #fdf6e3;
+        border-radius: 6px;
+    }
+
+        .results-list li.results-winner {
+            background: rgba(201, 123, 61, 0.15);
+            border-left: 4px solid #c97b3d;
+            font-weight: 700;
+        }
+
+.results-book {
+    display: block;
+}
+
+.results-meta {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #5c4327;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .top-row.navbar-bar {
@@ -790,4 +906,69 @@ h1 {
 
 .mt-5 {
     margin-top: 3rem;
+}
+
+/* Book covers on voting pages */
+[hidden] {
+    display: none !important;
+}
+
+.book-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #5c4327;
+    gap: 0.4rem;
+}
+
+    .gallery-item img {
+        width: 100%;
+        max-width: 110px;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+.rank-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+    .rank-row .vote-select {
+        flex: 1;
+    }
+
+.rank-cover {
+    width: 40px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.results-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.result-cover {
+    width: 60px;
+    height: auto;
+    flex: 0 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result-text {
+    flex: 1;
 }

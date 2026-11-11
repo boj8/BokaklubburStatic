@@ -98,6 +98,20 @@ const booksData = [
         author: "Douglas Adams",
         coverPath: "images/books/book14.jpg",
         description: "Fyrstu tvær bækur Douglas Adams um Arthur Dent og Ford Prefect; absúrdur vísindaskáldskapur og kaldhæðinn húmor."
+    },
+    {
+        order: 15,
+        title: "Confess",
+        author: "Rob Halford",
+        coverPath: "images/books/book15.jpg",
+        description: "Sjálfsævisaga söngvara Judas Priest, þar sem hann rekur feril sinn í þungarokki, baráttu við fíkn og það að koma út úr skápnum."
+    },
+    {
+        order: 16,
+        title: "The Satanic Verses",
+        author: "Salman Rushdie",
+        coverPath: "images/books/book16.jpg",
+        description: "Töfraraunsæ skáldsaga um tvo indverska leikara sem lifa af flugslys og taka umbreytingum, en bókin vakti miklar deilur og olli fordæmingu víða um heim."
     }
 ];
 
